@@ -16,7 +16,7 @@ st.markdown("Interactive demonstration of Machine Learning classification models
 
 # Sidebar Configuration
 st.sidebar.header("1. Upload & Settings")
-uploaded_file = st.sidebar.file_drop_zone if hasattr(st.sidebar, 'file_drop_zone') else st.sidebar.file_uploader("Upload Test Dataset (CSV)", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("Upload Test Dataset (CSV)", type=["csv"])
 
 model_choice = st.sidebar.selectbox(
     "Select Model",
@@ -32,10 +32,12 @@ model_mapping = {
 }
 
 if uploaded_file is not None:
+    # Explicitly reset file pointer and read CSV safely
+    uploaded_file.seek(0)
     data = pd.read_csv(uploaded_file)
+    
     st.subheader("📊 Uploaded Test Data Preview")
     st.dataframe(data.head())
-
     if 'target' not in data.columns:
         st.error("Uploaded CSV must contain a 'target' column!")
     else:
