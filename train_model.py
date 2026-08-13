@@ -1,5 +1,3 @@
-
-
 import os
 import joblib
 import numpy as np
@@ -51,17 +49,12 @@ models = {
     "Random Forest": RandomForestClassifier(n_estimators=100, random_state=42)
 }
 
-# 4. Train, Evaluate & Save
+# 4. Train ALL models on X_train_scaled and evaluate on X_test_scaled
 results = []
 for name, model in models.items():
-    if name in ["Logistic Regression", "KNN", "Naive Bayes"]:
-        model.fit(X_train_scaled, y_train)
-        y_pred = model.predict(X_test_scaled)
-        y_prob = model.predict_proba(X_test_scaled)[:, 1]
-    else:
-        model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
-        y_prob = model.predict_proba(X_test)[:, 1]
+    model.fit(X_train_scaled, y_train)
+    y_pred = model.predict(X_test_scaled)
+    y_prob = model.predict_proba(X_test_scaled)[:, 1]
 
     # Save model
     joblib.dump(model, f"model/{name.lower().replace(' ', '_')}.pkl")
