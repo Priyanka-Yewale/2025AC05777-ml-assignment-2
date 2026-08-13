@@ -6,10 +6,10 @@ The objective of this project is to construct, evaluate, and compare multiple su
 ## b. Dataset Description
 - **Source**: UCI Machine Learning Repository (Wine Quality Dataset)
 - **Instances**: 1,599 samples
-- **Features**: 11 continuous chemical features (fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol) + 1 engineered binary target (`1` for quality ≥ 6, `0` otherwise).
+- **Features**: 12 - 11 continuous chemical features (fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol) + 1 engineered binary target (`1` for quality ≥ 6, `0` otherwise).
 
 ## c. GitHub Repository Link
-[Insert Your GitHub Repository URL Here]
+https://github.com/Priyanka-Yewale/2025AC05777-ml-assignment-2/
 
 ## d. Models Used & Comparison Table
 
