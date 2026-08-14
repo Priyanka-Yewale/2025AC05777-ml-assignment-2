@@ -49,10 +49,11 @@ models = {
     "Random Forest": RandomForestClassifier(n_estimators=100, random_state=42)
 }
 
-# 4. Train ALL models on X_train_scaled and evaluate on X_test_scaled
-results = []
+# 4. Train ALL 5 models on scaled training data
 for name, model in models.items():
+    # Fit EVERY model on X_train_scaled
     model.fit(X_train_scaled, y_train)
+    
     y_pred = model.predict(X_test_scaled)
     y_prob = model.predict_proba(X_test_scaled)[:, 1]
 
